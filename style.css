@@ -252,173 +252,60 @@ body {
 
 
 /* =========================
-   SHARK
+   REALISTIC SWIMMING SHARK
 ========================= */
 
 .shark {
     position: absolute;
+    top: 24%;
+    right: -420px;
+    width: 390px;
+    z-index: 5;
+    animation: sharkSwim 20s linear infinite;
+}
 
-    top: 25%;
-    right: -300px;
-
-    width: 260px;
-    height: 100px;
-
-    animation: swim 18s linear infinite;
-
+.shark img {
+    width: 100%;
+    height: auto;
+    display: block;
     filter:
-        drop-shadow(0 0 12px #49baff)
-        drop-shadow(0 0 30px rgba(40, 150, 255, 0.5));
+        brightness(0.85)
+        saturate(1.15)
+        drop-shadow(0 0 12px rgba(50, 170, 255, 0.35));
+    animation: sharkBody 2.8s ease-in-out infinite;
 }
 
-
-/* Body */
-
-.shark-body {
-    position: absolute;
-
-    width: 210px;
-    height: 70px;
-
-    top: 20px;
-    left: 15px;
-
-    background: linear-gradient(
-        to bottom,
-        #b9e8ff,
-        #287cb5 45%,
-        #092d52
-    );
-
-    border-radius: 70% 40% 50% 60%;
-
-    transform: rotate(-3deg);
-}
-
-
-/* Nose */
-
-.shark-body::before {
-    content: "";
-
-    position: absolute;
-
-    left: -18px;
-    top: 15px;
-
-    width: 50px;
-    height: 40px;
-
-    background: #a9ddf8;
-
-    border-radius: 80% 20% 20% 80%;
-}
-
-
-/* Belly */
-
-.shark-body::after {
-    content: "";
-
-    position: absolute;
-
-    left: 5px;
-    bottom: -2px;
-
-    width: 160px;
-    height: 25px;
-
-    background: #c7ecff;
-
-    border-radius: 50%;
-}
-
-
-/* Fin */
-
-.shark-fin {
-    position: absolute;
-
-    top: -2px;
-    left: 115px;
-
-    width: 0;
-    height: 0;
-
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 45px solid #276f9e;
-
-    transform: rotate(8deg);
-}
-
-
-/* Tail */
-
-.shark-tail {
-    position: absolute;
-
-    right: 0;
-    top: 20px;
-
-    width: 0;
-    height: 0;
-
-    border-left: 55px solid #276f9e;
-    border-top: 30px solid transparent;
-    border-bottom: 30px solid transparent;
-}
-
-
-/* Eye */
-
-.shark-eye {
-    position: absolute;
-
-    left: 17px;
-    top: 33px;
-
-    width: 7px;
-    height: 7px;
-
-    background: white;
-
-    border-radius: 50%;
-
-    box-shadow: 0 0 8px white;
-}
-
-
-/* Swimming animation */
-
-@keyframes swim {
-
+@keyframes sharkSwim {
     0% {
-        transform: translateX(0) translateY(0)
-                   scaleX(1);
+        right: -420px;
+        transform: translateY(20px) rotate(1deg);
     }
-
-    25% {
-        transform: translateX(-25vw) translateY(-15px)
-                   scaleX(1);
+    20% {
+        transform: translateY(-10px) rotate(-1deg);
     }
-
-    50% {
-        transform: translateX(-50vw) translateY(10px)
-                   scaleX(1);
+    40% {
+        transform: translateY(15px) rotate(1deg);
     }
-
-    75% {
-        transform: translateX(-75vw) translateY(-10px)
-                   scaleX(1);
+    60% {
+        transform: translateY(-12px) rotate(-1deg);
     }
-
+    80% {
+        transform: translateY(10px) rotate(1deg);
+    }
     100% {
-        transform: translateX(-130vw) translateY(0)
-                   scaleX(1);
+        right: 110%;
+        transform: translateY(-5px) rotate(-1deg);
     }
 }
 
+@keyframes sharkBody {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(-1deg);
+    }
+}
 
 /* =========================
    SECTIONS
